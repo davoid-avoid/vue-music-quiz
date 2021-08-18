@@ -1,0 +1,132 @@
+<html>
+<head>
+	<script src="js/howler.min.js"></script>
+	<script src="js/songlist.js"></script>
+	<script src="js/vue.min.js"></script>
+	<script src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/app.css"></head>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Noto+Sans" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<body>
+
+<!-- main game area -->
+
+<div id="game-area">
+
+	<!-- just the background thingy, the guitar -->
+	<decor></decor>
+
+	<!-- game menu -->
+
+	<!-- dancing notes - note a lot this stuff should be components, but some weird character errors with the music notes were being a pain. Will figure it out later -->
+
+	<div id="music-notes-start">
+		<span class="note1 noteStart">♫</span>
+		<span class="note2 noteStart">♪</span>
+		<span class="note3 noteStart">♫</span>
+		<span class="note4 noteStart">♪</span>
+	</div>
+
+	<!-- start menu -->
+
+	<div id="main-menu">
+		<div id="game-menu-back2"></div>
+		<div id="game-menu-back1"></div>
+		<div id="game-menu">
+			<div class="unrotater-right">
+				<p class="game-title">♫ ♪<br><br>music quiz</p>
+				<p class="game-subtitle">Learning vue</p>
+				<br><br>
+				<div id="game-start" v-on:click="start">PLAY</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- actual in game menu -->
+
+	<div id="ingame-left-holder" class="left-push">
+		<div id="ingame-menu">
+			<div class="unrotater-left">
+				<div class="question">
+					{{ song.question}}
+				</div>
+				<div class="option-holder" v-if="fiftyhint">
+					<div class="options" v-for="option in song.half" v-on:click="submit(option)">
+						{{ option }}
+					</div>
+				</div>
+				<div class="option-holder" v-else="fiftyhint">
+					<div class="options" v-for="option in song.options" v-on:click="submit(option)">
+						{{ option }}
+					</div>
+				</div>
+				<div id="lyrics" v-if="lyricshint">
+					{{ song.lyrics }}
+				</div>
+				<div id="specials">
+					<div id="special-holder">
+						<div v-if="anyhint">Hints</div><br>
+						<div class="special1 special" v-on:click="fiftyclue" v-if="fiftyavailable">50/50</div>
+						<div class="special2 special" v-on:click="showlyrics" v-if="lyricsavailable">Lyrics</div>
+						<div class="special3 special" v-on:click="skipsong" v-if="canskip" style="line-height: 14pt"><br>Skip (-2pt)</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- chances -->
+
+	<div id="lives" class="hide">
+		<span class="lives-title">chances</span>
+		<br>
+		<div class="life-holder">
+			<span v-for="life in lives" class="life">♪</span>
+		</div>
+	</div>
+
+	<!-- score -->
+
+	<div id="score" class="hide">
+		<span class="score-holder">Score: {{ score }}</span>
+	</div>
+
+	<!-- play button -->
+
+	<div id="play-sample" class="hide">
+		<div id="play-button" v-on:click="play(song.songFile)" v-if="musicToPlay"></div>
+		<div v-else="musicToPlay"><div class="playNote1 playNote">♫</div></div>
+	</div>
+
+	<!-- notifier -->
+
+	<div class="notifierback" v-if="showingmessage">
+		<div class="notifier" v-if="gameover">
+			<span class="message">Out of Chances! You Scored: {{ score }}</span>
+			<br><br>
+			<span class="songTitle">{{ song.fullanswer }}</span><br>
+			<div class="next" v-on:click="startOver">Play Again</div>
+		</div>
+		<div class="notifier" v-else="gameover">
+			<span class="message">{{ notifymessage }}</span>
+			<br><br>
+			<span class="songTitle">{{ song.fullanswer }}</span><br>
+			<div class="next" v-on:click="nextStep">Next Song</div>
+		</div>
+	</div>
+
+	<!-- finished game -->
+
+	<div class="notifierback2" v-if="allsongs">
+		<div class="notifier">
+			<span class="message">Wow, you got through all the songs!</span>
+			<br><br>
+			<span class="songTitle">You Scored: {{ score }}</span><br>
+			<div class="next" v-on:click="startOver" style="margin-top: -20px">Play Again</div>
+		</div>
+	</div>
+
+
+</div>
+
+</body>

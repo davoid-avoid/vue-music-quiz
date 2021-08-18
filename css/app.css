@@ -1,0 +1,522 @@
+html, body {
+	margin: none;
+	overflow: hidden;
+}
+
+#game-area {
+	background-color: #2D3D53;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.backing-up {
+	top: -100% !important;
+}
+
+#decor-backing {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 1s;
+}
+
+.decor-soundhole {
+	background-color: #121F31;
+	width: 600px;
+	height: 600px;
+	border-radius: 300px;
+	position: absolute;
+	right: 150px;
+	top: calc(50% - 300px);
+}
+
+#decor-stringholder {
+	width: 100%;
+	height: 400px;
+	top: calc(50% - 200px);
+	position: absolute;
+}
+
+.decor-string {
+	background-color: #96A1BA;
+	width: 100%;
+	height: 10px;
+}
+
+#main-menu {
+	top: 0px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 1s;
+}
+
+.menu-down {
+	top: 200% !important;
+}
+
+#game-menu-back1 {
+	background-color: rgba(255,178,85, 0.2);
+	position: absolute;
+	right: -22%;
+	width: 70%;
+	height: 150%;
+	top: -30px;
+	transform: rotate(15deg);
+}
+
+#game-menu-back2 {
+	background-color: rgba(255,178,85, 0.1);
+	position: absolute;
+	right: -20%;
+	width: 70%;
+	height: 150%;
+	top: -30px;
+	transform: rotate(17deg);
+}
+
+#game-menu {
+	background-color: #FFB255;
+	position: absolute;
+	right: -25%;
+	width: 70%;
+	height: 150%;
+	top: -30px;
+	transform: rotate(12deg);
+}
+
+.unrotater-right {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	transform: rotate(-12deg);
+	width: 40%;
+	text-align: center;
+}
+
+.unrotater-left {
+	position: absolute;
+	top: 20%;
+	left: 45%;
+	transform: rotate(12deg);
+	width: 40%;
+	height: 50%;
+	text-align: center;
+	color: #2D3D53;
+	font-family: 'Josefin Sans', sans-serif;
+	text-transform: uppercase;
+}
+
+.game-title {
+	font-size: 45pt;
+	color: #2D3D53;
+	font-family: 'Josefin Sans', sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.game-subtitle {
+	font-size: 20pt;
+	color: #2D3D53;
+	font-family: 'Josefin Sans', sans-serif;
+	text-transform: uppercase;
+	font-weight: 400;
+	margin-top: -30px;
+}
+
+
+
+#game-start {
+	background-color: #2D3D53;
+	padding: 30px;
+	color: #FFB255;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 30pt;
+	width: inherit;
+	position: relative;
+	margin: 0 auto;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+#game-start:hover {
+	color: #ffffff;
+	background-color: #3B4D67;
+	transform: rotate(-4deg);
+}
+
+#music-notes-start {
+	color: #FFB255;
+	position: absolute;
+	top: 40%;
+	left: 8%;
+	font-size: 100pt;
+	transition: all 1s;
+}
+
+.hide {
+	opacity: 0;
+}
+
+.noteStart {
+	padding: 20px;
+}
+
+.note1 {
+	animation: MoveUpDown1 3s ease infinite;
+	position: relative;
+}
+.note2 {
+	animation: MoveUpDown2 2s ease infinite;
+	position: relative;
+}
+.note3 {
+	animation: MoveUpDown3 5s ease infinite;
+	position: relative;
+}
+.note4 {
+	animation: MoveUpDown4 4s ease infinite;
+	position: relative;
+}
+
+@keyframes MoveUpDown1 {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 60px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes MoveUpDown2 {
+  0% {
+    bottom: -10px;
+  }
+  50% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: -10px;
+  }
+}
+@keyframes MoveUpDown3 {
+  0% {
+    bottom: -20px;
+  }
+  50% {
+    bottom: 40px;
+  }
+  100% {
+    bottom: -20px;
+  }
+}
+@keyframes MoveUpDown4 {
+  0% {
+    bottom: -30px;
+  }
+  50% {
+    bottom: 30px;
+  }
+  100% {
+    bottom: -30px;
+  }
+}
+
+#ingame-left-holder {
+	width: 40%;
+	height: 100%;
+	position: absolute;
+	transition: all 2s;
+	left: 0%;
+}
+
+.left-push {
+	left: -100% !important;
+}
+
+#ingame-menu {
+	background-color: #FFB255;
+	position: absolute;
+	left: -50%;
+	width: 150%;
+	height: 150%;
+	top: -40px;
+	transform: rotate(-12deg);
+}
+
+#lives {
+	font-size: 30pt;
+	position: absolute;
+	right: 5%;
+	top: 2%;
+	color: white;
+	transition: all 6s;
+	width: 120px;
+}
+
+.lives-title {
+	font-size: 15pt;
+    font-family: 'Josefin Sans', sans-serif;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 20;
+}
+.life-holder {
+	width: inherit;
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+}
+.life {
+	display: inline-block;
+}
+.question {
+	font-size: 20pt;
+}
+
+.option-holder {
+	position: relative;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.options {
+	background-color: #2D3D53;
+	padding: 10px;
+	color: #FFB255;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 16pt;
+	width: inherit;
+	position: relative;
+	margin: 0 auto;
+	cursor: pointer;
+	transition: all 0.5s;
+	margin-top: 20px;
+}
+
+.options:hover {
+	color: #ffffff;
+	background-color: #3B4D67;
+}
+
+#specials {
+	position: relative;
+    top: 36px;
+	width: 100%;
+}
+
+#special-holder {
+	position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.special {
+	float: left;
+	background-color: #2D3D53;
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	color: #FFB255;
+	margin-right: 5px;
+	margin-left: 5px;
+	line-height: 52pt;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.special:hover {
+	color: #ffffff;
+	background-color: #3B4D67;
+}
+
+#play-sample {
+	color: #FFB255;
+    font-size: 20pt;
+    position: absolute;
+    right: 370px;
+    top: 38%;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: all 4s;
+}
+
+#play-button {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 70px 0 70px 140px;
+	border-color: transparent transparent transparent #ffb355;
+	cursor: pointer;
+	margin-top: 50px;}
+
+#play-button:hover {
+	opacity: 0.7;
+}
+
+.musicplaying {
+	display: block;
+}
+
+.playNote {
+	left: -5%;
+	font-size: 150pt;
+}
+
+.playNote1 {
+	animation: playNote 3s ease infinite;
+	position: relative;
+}
+
+@keyframes playNote {
+  0% {
+    top: -30px;
+  }
+  50% {
+    top: 30px;
+  }
+  100% {
+    top: -30px;
+  }
+}
+
+#lyrics {
+	bottom: 10px;
+    position: absolute;
+    font-size: 10pt;
+    line-height: 12pt;
+}
+
+.notifierback {
+	position: fixed;
+    width: 200vh;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.notifierback2 {
+	position: fixed;
+    width: 200vh;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0);
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.notifier {
+	width: 500px;
+    height: 400px;
+    background-color: #FFB255;
+    position: absolute;
+    left: calc(50vw - 250px);
+    top: calc(50vh - 200px);
+    text-align: center;
+}
+
+.message {
+	top: 70px;
+	position: relative;
+	color: #2D3D53;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 30pt;
+	padding: 20px;
+}
+
+.songTitle {
+	top: 130px;
+	position: relative;
+	color: #2D3D53;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 18pt;
+	width: 250px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.next {
+	background-color: #2D3D53;
+    padding: 10px;
+    color: #FFB255;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16pt;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-top: 20px;
+    top: 200px;
+}
+
+.next:hover {
+	color: #ffffff;
+	background-color: #3B4D67;
+}
+
+#score {
+	font-size: 20pt;
+    position: absolute;
+    right: 5%;
+    bottom: 2%;
+    color: white;
+    transition: all 6s;
+    width: 155px;
+    text-align: right;
+   	font-family: 'Josefin Sans', sans-serif;
+}
+
+@media screen and (max-width: 1200px){
+	#music-notes-start {
+		color: #FFB255;
+		position: absolute;
+		top: 40%;
+		left: 8%;
+		font-size: 60pt;
+		transition: all 1s;
+	}
+}
+
+@media screen and (max-height: 750px){
+	.unrotater-right {
+		position: absolute;
+		top: 10%;
+		left: 10%;
+		transform: rotate(-12deg);
+		width: 40%;
+		text-align: center;
+	}
+
+	.unrotater-left {
+		position: absolute;
+		top: 10%;
+		left: 45%;
+		transform: rotate(12deg);
+		width: 40%;
+		height: 60%;
+		text-align: center;
+		color: #2D3D53;
+		font-family: 'Josefin Sans', sans-serif;
+		text-transform: uppercase;
+	}
+
+}
+
+@media screen and (max-width: 1000px){
+	.special {
+		margin-left: 1px;
+		margin-right: 1px;
+	}
+}
+
